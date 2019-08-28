@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Util;
+namespace App\Util;
 
 class LogConsulta {
 
@@ -22,11 +22,12 @@ class LogConsulta {
 
         if (file_exists($this->caminho . '/log_gerar.txt')) {
             $dadosAtuais = $this->capturar();
-            $dadosAtuais .= "\n" . $data;
+            $dadosAtuais .= "\n" . $data . $this->obterIpe();
             $this->gravarArquivo($dadosAtuais);
         } else {
             $this->gravarArquivo($data);
         }
+        $data .="  " . $this->obterIpe();
         return $data;
     }
 
@@ -39,5 +40,13 @@ class LogConsulta {
         $dados = file_get_contents($this->caminho . '/log_gerar.txt');
         return $dados;
     }
+
+   function obterIpe() {
+   //$hostname = gethostbyaddr($_SERVER['REMOTE_ADDR']);
+
+$clienteIp = \Request::getClientIp(true);
+       return $clienteIp;
+
+}
 
 }
