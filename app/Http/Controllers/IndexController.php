@@ -11,9 +11,9 @@ class IndexController extends Controller
     public function index(){
     $titulo = "Senai Brusque";
     $rodape = date('Y').' Todos os direitos reservados.';
-     $caminho = 'storage/app';
+     $caminho = '../storage/app';
         $logRegistro = new LogConsulta($caminho);
-        $log = $logRegistro->registrar();
+        $log = $logRegistro->registrar('n','  Index');
         return view('site.index', compact('titulo','rodape','log'));
     }
    

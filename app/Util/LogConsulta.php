@@ -10,7 +10,7 @@ class LogConsulta {
         $this->caminho = $caminho;
     }
 
-    public function registrar($formato = 'n') {
+    public function registrar($formato = 'n',$pagina = 'chamada pelo Prompt') {
 
         if ($formato == 'n') {
             $data = date('d/m/Y H:i');
@@ -23,9 +23,9 @@ class LogConsulta {
         if (file_exists($this->caminho . '/log_gerar.txt')) {
             $dadosAtuais = $this->capturar();
             $dadosAtuais .= "\n" . $data . $this->obterIpe();
-            $this->gravarArquivo($dadosAtuais);
+            $this->gravarArquivo($dadosAtuais. $pagina);
         } else {
-            $this->gravarArquivo($data);
+            $this->gravarArquivo($data. $pagina);
         }
         $data .="  " . $this->obterIpe();
         return $data;

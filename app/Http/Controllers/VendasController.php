@@ -10,9 +10,9 @@ class VendasController extends Controller {
     public function vendas() {
         $titulo = "Vendas Senai";
         $rodape = date('Y') . ' Todos os direitos reservados.';
-        $caminho = 'storage/app';
+        $caminho = '../storage/app';
         $logRegistro = new LogConsulta($caminho);
-        $log = $logRegistro->registrar();
+        $log = $logRegistro->registrar('n', '  Vendas');
         return view('site.index', compact('titulo', 'rodape', 'log'));
     }
 
