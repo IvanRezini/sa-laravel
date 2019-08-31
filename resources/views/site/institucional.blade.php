@@ -10,7 +10,7 @@
 
 @section('conteudo')
 <div>
-    <h2 id="venus">Vênus</h2>
+    <h2>gato</h2>
 
     <div class="container" >
         <img 
