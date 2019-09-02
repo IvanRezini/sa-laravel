@@ -13,7 +13,7 @@ class VendasController extends Controller {
         $caminho = '../storage/app';
         $logRegistro = new LogConsulta($caminho);
         $log = $logRegistro->registrar('n', '  Vendas');
-        return view('site.index', compact('titulo', 'rodape', 'log'));
+        return view('site.vendas', compact('titulo', 'rodape', 'log'));
     }
 
 }
