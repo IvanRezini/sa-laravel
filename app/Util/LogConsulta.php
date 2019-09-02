@@ -10,7 +10,7 @@ class LogConsulta {
         $this->caminho = $caminho;
     }
 
-    public function registrar($formato = 'n',$pagina = 'chamada pelo Prompt') {
+    public function registrar($formato = 'n',$pagina = '  Chamada pelo Prompt') {
 
         if ($formato == 'n') {
             $data = date('d/m/Y H:i');
@@ -41,12 +41,19 @@ class LogConsulta {
         return $dados;
     }
 
-   function obterIpe() {
+    public function obterIpe() {
    //$hostname = gethostbyaddr($_SERVER['REMOTE_ADDR']);
 
 $clienteIp = \Request::getClientIp(true);
        return $clienteIp;
 
+}
+
+public function ultimoAcesso() {
+    $ultimo = $this->capturar();
+     $linhasArray = explode("\n", $ultimo);
+    $linhasArray = array_reverse($linhasArray);
+    return $linhasArray[0];
 }
 
 }
